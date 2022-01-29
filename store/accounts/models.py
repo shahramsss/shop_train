@@ -7,7 +7,7 @@ from .managers import UserManager
 class User (AbstractBaseUser):
     email = models.EmailField(max_length=124, unique=True)
     full_name = models.CharField(max_length=124)
-    phone = models.PositiveBigIntegerField(null=True , blank=True)
+    phone = models.PositiveBigIntegerField(null=True , blank=True , unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     objects = UserManager()

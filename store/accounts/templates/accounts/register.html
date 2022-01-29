@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<p>login page</p>
+<p>register page</p>
 <form action="" method="post" , align= right>
     {% csrf_token %}
     {{form}}
-    <input value="login" class="btn btn-primary mt-2" type="submit">
+    <input value="register" class="btn btn-primary mt-2" type="submit">
 </form>
 {% endblock content %}

@@ -34,5 +34,18 @@ class UserChangeForm(forms.ModelForm):
 
     
     def clean_password(self):
-        
-        return self.initial['password']        
+        return self.initial['password']      
+
+class UserLoginForm(forms.Form):
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+
+
+
+class UserRegisterForm(forms.Form):
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
+    full_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    # phone = forms.IntegerField(widget=forms.NumberInput(attrs={'class':'form-control'}))
+    phone = forms.CharField( widget=forms.TextInput(attrs={'type':'number', 'class':'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
+    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control'}))
