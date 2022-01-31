@@ -130,8 +130,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-MEDIA_ROOT = str(BASE_DIR / 'images')
-MEDIA_URL = '/images/'
+MEDIA_ROOT = str(BASE_DIR / 'media')
+MEDIA_URL = '/media/'
 
 
 AUTH_USER_MODEL = 'accounts.User'
