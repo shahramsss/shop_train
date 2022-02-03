@@ -1,4 +1,3 @@
-from unicodedata import category
 from django.contrib import admin
 
 from .models import Category, Product
@@ -16,4 +15,11 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('available', 'created')
     list_editable = ('price', 'available')
     prepopulated_fields = {'slug': ('name',)}
-    raw_id_fields = ('category',)
+    # raw_id_fields = ('category',)
+    actions = ('make_available',)
+
+    def make_available(self, request, quertyset):
+        row = quertyset.update(available=True)
+        self.message_user(request, f'{row} updated')
+        
+    make_available.short_description = 'make all available'
